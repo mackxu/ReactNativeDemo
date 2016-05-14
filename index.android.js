@@ -17,18 +17,18 @@ class MyProject extends Component {
   renderScene = (route, navigator) => {
     console.log(11);
     let MyComponent = route.component;
-    return <MyComponent
-      {...route.params}
+    return <MyComponent 
+      {...route.params} 
       {...route}
       navigator={navigator}
-      />
+      />  
   };
   render() {
     return (
       <Navigator
         initialRoute={{
           component: ReactSubject,
-          title: '演示',
+          title: '演示', 
         }}
         renderScene={this.renderScene.bind(this)}
         configureScene={(route) => {
