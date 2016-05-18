@@ -3,8 +3,12 @@
 
 import { 
     StyleSheet,
-    Image,
+    Dimensions,
 } from 'react-native';
+
+let { width, height } = Dimensions.get('window');
+
+console.log('width: ' + width);
 
 export default StyleSheet.create({
   container: {
@@ -12,11 +16,15 @@ export default StyleSheet.create({
   },
   subjectCover: {
     resizeMode: 'stretch',
+    flex: 1,
+    opacity: 0.2,
   },
   albumContainer: {
     position: 'absolute',
-    top: 300,
+    top: 360,
     left: 0,
+    right: 0,
+    bottom: 0,
   },
   box: {
     width: 210,

@@ -10,15 +10,16 @@ import {
 } from 'react-native';
 
 // import Home from './animate/Home';
+import Home from './topic/Home';
 // import Playground from './animate/Playground';
-import ReactSubject from './test/ReactSubject';
+// import ReactSubject from './test/ReactSubject';
 
 class MyProject extends Component {
   renderScene = (route, navigator) => {
-    console.log(11);
     let MyComponent = route.component;
+    console.log(route.title);
     return <MyComponent 
-      {...route.params} 
+      {...route.params}
       {...route}
       navigator={navigator}
       />  
@@ -27,8 +28,8 @@ class MyProject extends Component {
     return (
       <Navigator
         initialRoute={{
-          component: ReactSubject,
-          title: '演示', 
+          component: Home,
+          title: '专题回顾', 
         }}
         renderScene={this.renderScene.bind(this)}
         configureScene={(route) => {
