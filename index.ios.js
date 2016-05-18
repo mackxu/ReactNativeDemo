@@ -9,9 +9,9 @@ import {
   Navigator,
 } from 'react-native';
 
-// import Home from './animate/Home';
+import Home from './animate/Home';
 // import Playground from './animate/Playground';
-import ReactSubject from './test/ReactSubject';
+// import ReactSubject from './test/ReactSubject';
 
 class MyProject extends Component {
   renderScene = (route, navigator) => {
@@ -27,7 +27,7 @@ class MyProject extends Component {
     return (
       <Navigator
         initialRoute={{
-          component: ReactSubject,
+          component: Home,
           title: '演示',
         }}
         renderScene={this.renderScene.bind(this)}
