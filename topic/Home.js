@@ -19,17 +19,14 @@ import AlbumList from './AlbumList';
 class Home extends Component {
   constructor(props) {
     super(props);
-    var dataSource = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1.guid !== r2.guid
-    });
     this.state = {
-      topicData: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1.id !== r2.id }),
+      topicList: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1.id !== r2.id }),
       loaded: false,
     };
   }
 
   componentDidMount() {
-    let topicData = [{
+    let topicList = [{
       id: 406007302,
       name: '周冬雨余文乐CP造型盘点',
       imageUrl: 'http://pic5.ptqy.gitv.tv/image/20160517/7f/83/c_202613439_l_601_480_270.jpg',
@@ -39,7 +36,7 @@ class Home extends Component {
       imageUrl: 'http://pic4.ptqy.gitv.tv/image/20160406/1c/0c/c_202450013_l_601_480_270.jpg',
     }];
     this.setState({
-      topicData: this.state.topicData.cloneWithRows(topicData),
+      topicList: this.state.topicList.cloneWithRows(topicList),
       loaded: true,
     });
   }
@@ -53,9 +50,9 @@ class Home extends Component {
           accessible={true}
           />
         <ListView
-        dataSource = {this.state.topicData}
-        renderRow = {this.renderTopic.bind(this)}
-        style = {styles.topicList} />
+          dataSource = {this.state.topicList}
+          renderRow = {this.renderTopic.bind(this)}
+          style = {styles.topicList} />
       </View>
     );
   }
@@ -70,9 +67,9 @@ class Home extends Component {
 
   onPress = (topicId, topicName) => {
     this.props.navigator.push({
-        component: AlbumList,
-        title: topicName,
-        topicId,
+      component: AlbumList,
+      title: topicName,
+      topicId,
     });
   };
 

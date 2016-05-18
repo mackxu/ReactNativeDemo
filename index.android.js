@@ -17,8 +17,9 @@ import Home from './topic/Home';
 class MyProject extends Component {
   renderScene = (route, navigator) => {
     let MyComponent = route.component;
+    console.log(route.title);
     return <MyComponent 
-      {...route.params} 
+      {...route.params}
       {...route}
       navigator={navigator}
       />  
