@@ -6,47 +6,40 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  Navigator,
 } from 'react-native';
 
+import Home from './animate/Home';
+// import Playground from './animate/Playground';
+// import ReactSubject from './test/ReactSubject';
+
 class MyProject extends Component {
+  renderScene = (route, navigator) => {
+    console.log(11);
+    let MyComponent = route.component;
+    return <MyComponent
+      {...route.params}
+      {...route}
+      navigator={navigator}
+      />
+  };
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute={{
+          component: Home,
+          title: '演示',
+        }}
+        renderScene={this.renderScene.bind(this)}
+        configureScene={(route) => {
+          let gestureType = Navigator.SceneConfigs.HorizontalSwipeJump;
+          gestureType.gestures.jumpForward = null;
+          return gestureType;
+        }}
+      />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('MyProject', () => MyProject);
