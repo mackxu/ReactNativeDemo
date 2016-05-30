@@ -186,8 +186,6 @@ const styles = StyleSheet.create({
   /* -------------- 头部bar样式 ------------ */
   navContainer: {
     backgroundColor: '#81c04d',
-    flex: 1,
-    flexDirection: 'row',
   },
   navBarText: {
     fontSize: 20,
@@ -195,9 +193,8 @@ const styles = StyleSheet.create({
   },
   navBarTitleText: {
     flex: 1,
-    marginVertical: 9,
+    marginTop: 12,
     textAlign: 'center',
-    width: 200,
   },
   navLeft: {
     marginTop: 14,
