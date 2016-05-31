@@ -34,8 +34,10 @@ class GridGame extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.renderAllTiles()}
+      <View style={[styles.container]}>
+        <View style={styles.gridContainer}>
+          {this.renderAllTiles()}
+        </View>
       </View>
     );
   }
@@ -99,13 +101,16 @@ class GridGame extends Component {
 
 }
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
+  gridContainer: {
     width: CELL_SIZE * SIZE,
+    height: CELL_SIZE * SIZE,
   },
 
   tileStyle: {
