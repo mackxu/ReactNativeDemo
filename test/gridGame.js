@@ -72,6 +72,14 @@ class GridGame extends Component {
     return t;
   }
 
+  /**
+   * 渲染tile
+   * onStartShouldSetResponder “询问”一个View是否愿意成为响应者
+   * @param  {[type]} id           [description]
+   * @param  {[type]} tilePosition [description]
+   * @param  {[type]} text         [description]
+   * @return {[type]}              [description]
+   */
   renderTile = (id, tilePosition, text) => {
     return (
       <Animated.View 
@@ -86,12 +94,13 @@ class GridGame extends Component {
 
   /**
    * onPress事件
+   * 发生翘起动画
    * @param  {[type]} tileId [description]
    * @return {[type]}        [description]
    */
   onPressTile = (tileId) => {
     let tile = this.state.tiles[tileId];
-    tile.setValue(1);
+    tile.setValue(1);           // 从 1...0 动画结束即可恢复状态
     Animated.timing(tile, {
       toValue: 0,
       duration: 250,
